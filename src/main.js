@@ -1,13 +1,21 @@
 import kaplay from "kaplay";
 import "kaplay/global";
 
-const k = kaplay()
+kaplay({
+    buttons: {
+        jump: {
+            keyboard: ["space", "up"],
+            gamepad: ["south"],
+        },
+    },
+});
+loadSprite("goober", "sprites/goober.png")
 
-k.loadSprite("bean", "sprites/bean.png")
-
-k.add([
-	k.pos(120, 80),
-	k.sprite("bean"),
-])
-
-k.onClick(() => k.addKaboom(k.mousePos()))
+// City area
+scene("city", () => {
+    add([
+        sprite("goober"),
+		scale(4,4),
+    ]);
+});
+go("city");
