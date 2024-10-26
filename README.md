@@ -11,3 +11,5 @@ _What am I doing?_
 5. Fishing System
 6. all of the art
 7. Save progress
+8. Add Music (NES Style)
+9. be AWESOME
