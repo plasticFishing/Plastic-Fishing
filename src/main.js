@@ -6,6 +6,18 @@ kaplay();
 // Load sprites
 loadSprite("goober", "sprites/goober.png");
 
+// Inventory Stuff
+let trashInventory = [];
+let inventoryCap = 5;
+
+// Gear Quality
+let fishingRod = "old";
+let scubaGear = "none";
+let run = 0;
+
+let day = 1;
+let time = 600;
+
 // City area
 scene("city", () => {
   setCursor("none");
