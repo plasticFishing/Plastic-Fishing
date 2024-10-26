@@ -1,21 +1,32 @@
 import kaplay from "kaplay";
 import "kaplay/global";
 
-kaplay({
-    buttons: {
-        jump: {
-            keyboard: ["space", "up"],
-            gamepad: ["south"],
-        },
-    },
-});
-loadSprite("goober", "sprites/goober.png")
+kaplay();
+
+// Load sprites
+loadSprite("goober", "sprites/goober.png");
 
 // City area
 scene("city", () => {
-    add([
-        sprite("goober"),
-		scale(4,4),
-    ]);
+  const SPEED = 320;
+
+  // Player
+  const player = add([sprite("goober"), pos(center()), scale(4, 4)]);
+
+  // Player movement in city area
+  onKeyDown("d", () => {
+    player.move(SPEED, 0);
+  });
+  onKeyDown("a", () => {
+    player.move(-SPEED, 0);
+  });
+  onKeyDown("w", () => {
+    player.move(0, -SPEED);
+  });
+  onKeyDown("s", () => {
+    player.move(0, SPEED);
+  });
 });
+
+// Load area
 go("city");
