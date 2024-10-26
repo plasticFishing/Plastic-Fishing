@@ -47,7 +47,7 @@ scene("city", () => {
 // Fishing Mode
 scene("fishing", () => {
   // Variables
-  const bobberspawn = rand(width()); // Temporary
+  let bobberSpawn = 0;
   let bobberCasted = false;
   let bobberCooldown = 0;
   // Set stuff
@@ -57,11 +57,13 @@ scene("fishing", () => {
   // Logic
   onClick(() => {
     if (!bobberCasted) {
+      bobberSpawn = mousePos().x;
       bobberCasted = true;
       bobberCooldown = 30;
     }
     if (bobberCasted && !bobberCooldown) {
       bobberCasted = false;
+      setCursor("crosshair");
     }
   });
 
@@ -71,9 +73,10 @@ scene("fishing", () => {
       bobberCooldown--;
     }
     if (bobberCasted) {
+      setCursor("none");
       drawLine({
-        p1: vec2(bobberspawn, 0),
-        p2: vec2(bobberspawn, mousePos().y),
+        p1: vec2(bobberSpawn, 0),
+        p2: vec2(bobberSpawn, mousePos().y),
         width: 2,
         color: BLACK,
       });
