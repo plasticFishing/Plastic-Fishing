@@ -35,7 +35,7 @@ scene("city", () => {
 // Fishing Mode
 scene("fishing", () => {
   // Variables
-  const bobberspawn = 200;
+  const bobberspawn = rand(width()); // Temporary
   let bobberCasted = false;
   let bobberCooldown = 0;
   // Set stuff
@@ -61,8 +61,8 @@ scene("fishing", () => {
     if (bobberCasted) {
       drawLine({
         p1: vec2(bobberspawn, 0),
-        p2: mousePos(),
-        width: 4,
+        p2: vec2(bobberspawn, mousePos().y),
+        width: 2,
         color: BLACK,
       });
     }
