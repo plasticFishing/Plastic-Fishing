@@ -34,7 +34,39 @@ scene("city", () => {
 
 // Fishing Mode
 scene("fishing", () => {
+  // Variables
+  const bobberspawn = 200;
+  let bobberCasted = false;
+  let bobberCooldown = 0;
+  // Set stuff
   setBackground("#4557a5");
+  setCursor("crosshair");
+
+  // Logic
+  onClick(() => {
+    if (!bobberCasted) {
+      bobberCasted = true;
+      bobberCooldown = 30;
+    }
+    if (bobberCasted && !bobberCooldown) {
+      bobberCasted = false;
+    }
+  });
+
+  // Loop
+  onUpdate(() => {
+    if (bobberCooldown) {
+      bobberCooldown--;
+    }
+    if (bobberCasted) {
+      drawLine({
+        p1: vec2(bobberspawn, 0),
+        p2: mousePos(),
+        width: 4,
+        color: BLACK,
+      });
+    }
+  });
 });
 
 // Main Menu
