@@ -1,27 +1,10 @@
-# Folder structure
+# Plastic Fishing Game
+_What am I doing?_
 
-- `src` - source code for your kaplay project
-- `www` - distribution folder, contains your index.html, built js bundle and static assets
-
-
-## Development
-
-```sh
-$ npm run dev
-```
-
-will start a dev server at http://localhost:8000
-
-## Distribution
-
-```sh
-$ npm run build
-```
-
-will build your js files into `www/main.js`
-
-```sh
-$ npm run bundle
-```
-
-will build your game and package into a .zip file, you can upload to your server or itch.io / newground etc.
+## TODO:
+1. Main Menu
+2. City area (shop, recycling center, etc.)
+3. Fishing Dock
+4. UI
+5. Fishing System
+6. all of the art
