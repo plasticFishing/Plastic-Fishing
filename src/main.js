@@ -18,8 +18,20 @@ let run = 0;
 let day = 1;
 let time = 600;
 
+// Bind fullscreen to the f key
+function fullscreen() {
+  onKeyPress("f", () => {
+    setFullscreen(true);
+    if (isFullscreen) {
+      setFullscreen(false);
+    }
+  });
+}
+
 // City area
 scene("city", () => {
+  fullscreen();
+
   setCursor("none");
   const SPEED = 320;
 
@@ -46,6 +58,7 @@ scene("city", () => {
 
 // Fishing Mode
 scene("fishing", () => {
+  fullscreen();
   // Variables
   let bobberSpawn = 0;
   let bobberCasted = false;
@@ -86,6 +99,7 @@ scene("fishing", () => {
 
 // Main Menu
 scene("main_menu", () => {
+  fullscreen();
   setBackground("#313238");
   add([
     text("Plastic Fishing"),
