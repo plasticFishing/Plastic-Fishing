@@ -28,6 +28,11 @@ function fullscreen() {
   });
 }
 
+// Spawn Trash
+function spawnTrash(amount) {
+  for (var x; x <= amount; x++) {}
+}
+
 // City area
 scene("city", () => {
   fullscreen();
