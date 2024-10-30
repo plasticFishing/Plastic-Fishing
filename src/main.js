@@ -60,6 +60,7 @@ scene("city", () => {
 scene("fishing", () => {
   fullscreen();
   // Variables
+  let fishCap = 5;
   let bobberSpawn = 0;
   let bobberCasted = false;
   let bobberCooldown = 0;
