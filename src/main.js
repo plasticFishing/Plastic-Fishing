@@ -30,7 +30,9 @@ function fullscreen() {
 
 // Spawn Trash
 function spawnTrash(amount) {
-  for (var x; x <= amount; x++) {}
+  for (var x; x <= amount; x++) {
+    add([rect(20, 20), pos(rand(screenX), rand(screenY))]);
+  }
 }
 
 // City area
@@ -69,6 +71,8 @@ scene("fishing", () => {
   let bobberSpawn = 0;
   let bobberCasted = false;
   let bobberCooldown = 0;
+
+  let bobberOffset = 0;
   // Set stuff
   setBackground("#4557a5");
   setCursor("crosshair");
@@ -86,6 +90,15 @@ scene("fishing", () => {
     }
   });
 
+  // This speeds up the offset to 2x if you hit both keys. That's neat
+  onKeyDown(["right", "d"], () => {
+    bobberOffset += 0.5;
+  });
+
+  onKeyDown(["left", "a"], () => {
+    bobberOffset -= 0.5;
+  });
+
   // Loop
   onUpdate(() => {
     if (bobberCooldown) {
@@ -95,7 +108,7 @@ scene("fishing", () => {
       setCursor("none");
       drawLine({
         p1: vec2(bobberSpawn, 0),
-        p2: vec2(bobberSpawn, mousePos().y),
+        p2: vec2(bobberSpawn + bobberOffset, mousePos().y),
         width: 2,
         color: BLACK,
       });
