@@ -1,7 +1,16 @@
 import kaplay from "kaplay";
 import "kaplay/global";
 
-kaplay();
+kaplay({
+  buttons: {
+    offsetRight: {
+      keyboard: ["right", "d"],
+    },
+    offsetLeft: {
+      keyboard: ["left", "a"],
+    },
+  },
+});
 
 // Load sprites
 loadSprite("goober", "sprites/goober.png");
@@ -90,12 +99,11 @@ scene("fishing", () => {
     }
   });
 
-  // This speeds up the offset to 2x if you hit both keys. That's neat
-  onKeyDown(["right", "d"], () => {
+  onKeyDown("offsetRight", () => {
     bobberOffset += 0.5;
   });
 
-  onKeyDown(["left", "a"], () => {
+  onKeyDown("offsetLeft", () => {
     bobberOffset -= 0.5;
   });
 
