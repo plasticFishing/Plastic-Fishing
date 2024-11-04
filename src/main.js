@@ -40,7 +40,13 @@ function fullscreen() {
 // Spawn Trash
 function spawnTrash(amount) {
   for (var x = 0; x < amount; x++) {
-    add([rect(20, 20), color("#ff00ff"), pos(rand(width()), rand(height()))]);
+    add([
+      rect(20, 20),
+      color("#ff00ff"),
+      rotate(rand(180)),
+      pos(rand(width()), rand(height())),
+      "trash",
+    ]);
   }
 }
 
