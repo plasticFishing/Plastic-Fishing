@@ -39,8 +39,8 @@ function fullscreen() {
 
 // Spawn Trash
 function spawnTrash(amount) {
-  for (var x; x <= amount; x++) {
-    add([rect(20, 20), pos(rand(screenX), rand(screenY))]);
+  for (var x = 0; x < amount; x++) {
+    add([rect(20, 20), color("#ff00ff"), pos(rand(width()), rand(height()))]);
   }
 }
 
@@ -74,6 +74,7 @@ scene("city", () => {
 
 // Fishing Mode
 scene("fishing", () => {
+  spawnTrash(rand(12));
   fullscreen();
   // Variables
   let fishCap = 5;
@@ -105,6 +106,10 @@ scene("fishing", () => {
 
   onKeyDown("offsetLeft", () => {
     bobberOffset -= 0.5;
+  });
+
+  onKeyDown("space", () => {
+    spawnTrash(1);
   });
 
   // Loop
