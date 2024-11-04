@@ -9,6 +9,6 @@ _What am I doing?_
 3. Fishing Dock
 4. UI
 5. Fishing System
-6. all of the art
+6. All of the art
 7. Save progress
 8. Add Music (NES Style)
