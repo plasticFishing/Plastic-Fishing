@@ -14,6 +14,7 @@ kaplay({
 
 // Load sprites
 loadSprite("goober", "sprites/goober.png");
+loadSprite("bobber", "sprites/bobber.png");
 
 // Inventory Stuff
 let trashInventory = [];
@@ -117,7 +118,13 @@ scene("fishing", () => {
   onKeyDown("space", () => {
     spawnTrash(10);
   });
-  const hook = add([rect(10, 10), pos(-10, -10), color("#ff0000"), "hook"]);
+  const hook = add([
+    sprite("bobber"),
+    scale(3),
+    pos(-10, -10),
+    color("#ff0000"),
+    "hook",
+  ]);
   // Loop
   onUpdate(() => {
     if (bobberCooldown) {
@@ -125,7 +132,7 @@ scene("fishing", () => {
     }
     if (bobberCasted) {
       let pointX = bobberSpawn + bobberOffset;
-      hook.moveTo(pointX, mousePos().y);
+      hook.moveTo(pointX - 25, mousePos().y - 10);
 
       setCursor("none");
       drawLine({
