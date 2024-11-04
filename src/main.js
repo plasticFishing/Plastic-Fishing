@@ -13,7 +13,7 @@ kaplay({
 });
 
 // Load sprites
-loadSprite("goober", "sprites/goober.png");
+loadSprite("goober", "sprites/goober.pxng");
 
 // Inventory Stuff
 let trashInventory = [];
