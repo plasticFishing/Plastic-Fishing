@@ -115,23 +115,30 @@ scene("fishing", () => {
   });
 
   onKeyDown("space", () => {
-    spawnTrash(1);
+    spawnTrash(10);
   });
-
+  const hook = add([rect(10, 10), pos(-10, -10), color("#ff0000"), "hook"]);
   // Loop
   onUpdate(() => {
     if (bobberCooldown) {
       bobberCooldown--;
     }
     if (bobberCasted) {
+      let pointX = bobberSpawn + bobberOffset;
+      hook.moveTo(pointX, mousePos().y);
+
       setCursor("none");
       drawLine({
         p1: vec2(bobberSpawn, 0),
-        p2: vec2(bobberSpawn + bobberOffset, mousePos().y),
+        p2: vec2(pointX, mousePos().y),
         width: 2,
         color: BLACK,
       });
     }
+
+    onCollide("hook", "trash", () => {
+      debug.log("there's no way this works");
+    });
   });
 });
 
