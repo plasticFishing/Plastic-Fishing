@@ -101,10 +101,12 @@ scene("fishing", () => {
       bobberSpawn = mousePos().x;
       bobberCasted = true;
       bobberCooldown = 30;
+      add(hook); // add hook when line is cast
     }
     if (bobberCasted && !bobberCooldown) {
       bobberCasted = false;
       setCursor("crosshair");
+      destroy(hook); // remove hook when line is not cast
     }
   });
 
@@ -119,7 +121,7 @@ scene("fishing", () => {
   onKeyDown("space", () => {
     spawnTrash(10);
   });
-  const hook = add([
+  const hook = make([  // changed to make() so that hook is not in right corner
     sprite("bobber"),
     scale(3),
     pos(-10, -10),
@@ -146,7 +148,6 @@ scene("fishing", () => {
         color: BLACK,
       });
     }
-  });
 });
 
 // Main Menu
