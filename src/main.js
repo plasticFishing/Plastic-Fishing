@@ -100,7 +100,7 @@ scene("fishing", () => {
       bobberSpawn = mousePos().x;
       bobberCasted = true;
       bobberCooldown = 30;
-      get(hook);
+      draw(hook);
     }
     if (bobberCasted && !bobberCooldown) {
       bobberCasted = false;
