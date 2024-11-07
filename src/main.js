@@ -146,8 +146,11 @@ scene("fishing", () => {
     }
 
     onCollide("hook", "trash", () => {
-      debug.log("there's no way this works");
-    });
+     remove(hook);
+  });
+   // onCollide("hook", "trash", () => {
+     // debug.log("there's no way this works");
+  //  });
   });
 });
 
