@@ -46,6 +46,7 @@ function spawnTrash(amount) {
       color("#ff00ff"),
       rotate(rand(180)),
       pos(rand(width()), rand(height())),
+      area(),
       "trash",
     ]);
   }
@@ -123,6 +124,7 @@ scene("fishing", () => {
     scale(3),
     pos(-10, -10),
     color("#ff0000"),
+    area(),
     "hook",
   ]);
   // Loop
@@ -133,7 +135,9 @@ scene("fishing", () => {
     if (bobberCasted) {
       let pointX = bobberSpawn + bobberOffset;
       hook.moveTo(pointX - 25, mousePos().y - 10);
-
+      onCollide("trash", "hook", (trash) => {
+        destroy(trash);
+      });
       setCursor("none");
       drawLine({
         p1: vec2(bobberSpawn, 0),
@@ -142,10 +146,6 @@ scene("fishing", () => {
         color: BLACK,
       });
     }
-
-    onCollide("hook", "trash", () => {
-      debug.log("there's no way this works");
-    });
   });
 });
 
