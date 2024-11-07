@@ -100,12 +100,12 @@ scene("fishing", () => {
       bobberSpawn = mousePos().x;
       bobberCasted = true;
       bobberCooldown = 30;
-      obj.add(hook);
+      get(hook);
     }
     if (bobberCasted && !bobberCooldown) {
       bobberCasted = false;
       setCursor("crosshair");
-      obj.destroy(hook);
+      destroy(hook);
     }
   });
 
