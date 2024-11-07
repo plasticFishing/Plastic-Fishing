@@ -104,7 +104,7 @@ scene("fishing", () => {
     if (bobberCasted && !bobberCooldown) {
       bobberCasted = false;
       setCursor("crosshair");
-      sprite.remove(bobber);
+      sprite.destroy("bobber");
     }
   });
 
