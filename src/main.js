@@ -100,7 +100,7 @@ scene("fishing", () => {
       bobberSpawn = mousePos().x;
       bobberCasted = true;
       bobberCooldown = 30;
-      draw(hook);
+      // add hook back
     }
     if (bobberCasted && !bobberCooldown) {
       bobberCasted = false;
@@ -120,7 +120,7 @@ scene("fishing", () => {
   onKeyDown("space", () => {
     spawnTrash(10);
   });
-  const hook = add([
+  const hook = make([
     sprite("bobber"),
     scale(3),
     pos(-10, -10),
