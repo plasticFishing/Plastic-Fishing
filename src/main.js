@@ -121,7 +121,8 @@ scene("fishing", () => {
   onKeyDown("space", () => {
     spawnTrash(10);
   });
-  const hook = make([  // changed to make() so that hook is not in right corner
+  const hook = make([
+    // changed to make() so that hook is not in right corner
     sprite("bobber"),
     scale(3),
     pos(-10, -10),
@@ -148,6 +149,7 @@ scene("fishing", () => {
         color: BLACK,
       });
     }
+  });
 });
 
 // Main Menu
