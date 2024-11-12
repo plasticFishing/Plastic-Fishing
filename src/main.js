@@ -136,7 +136,7 @@ scene("fishing", () => {
       bobberCooldown--;
     }
     if (bobberCasted) {
-      let pointX = bobberSpawn + bobberOffset;
+      let pointX = bobberSpawn; //+ bobberOffset;
       hook.moveTo(pointX - 25, mousePos().y - 10);
       onCollide("trash", "hook", (trash) => {
         destroy(trash);
