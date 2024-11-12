@@ -126,7 +126,7 @@ scene("fishing", () => {
     sprite("bobber"),
     scale(3),
     pos(-10, -10),
-    color("#000000"),
+    color("#ff0000"),
     area(),
     "hook",
   ]);
