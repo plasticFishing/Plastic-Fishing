@@ -125,7 +125,7 @@ scene("fishing", () => {
     // changed to make() so that hook is not in right corner
     sprite("bobber"),
     scale(3),
-    pos(-10, -10),
+    pos(0, 0),
     color("#ff0000"),
     area(),
     "hook",
@@ -136,7 +136,7 @@ scene("fishing", () => {
       bobberCooldown--;
     }
     if (bobberCasted) {
-      let pointX = bobberSpawn; //+ bobberOffset;
+      let pointX = bobberSpawn + bobberOffset;
       hook.moveTo(pointX - 25, mousePos().y - 10);
       onCollide("trash", "hook", (trash) => {
         destroy(trash);
