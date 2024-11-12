@@ -89,7 +89,6 @@ scene("fishing", () => {
   let bobberSpawn = 0;
   let bobberCasted = false;
   let bobberCooldown = 0;
-
   let bobberOffset = 0;
   // Set stuff
   setBackground("#4557a5");
