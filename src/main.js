@@ -80,6 +80,12 @@ scene("city", () => {
   go("fishing");
 });
 
+scene("dock", () => {
+  fullscreen()
+  setBackground("#1c7ec9")
+  add([rect(600,200),pos(0,100)])
+})
+
 // Fishing Mode
 scene("fishing", () => {
   spawnTrash(rand(12));
@@ -138,7 +144,9 @@ scene("fishing", () => {
       let pointX = bobberSpawn + bobberOffset;
       hook.moveTo(pointX - 8, mousePos().y);
       onCollide("trash", "hook", (trash) => {
-        destroy(trash);
+        if (trashInventory) {
+          destroy(trash);
+        }
       });
       setCursor("none");
       drawLine({
@@ -167,7 +175,7 @@ scene("main_menu", () => {
     "play",
   ]);
   onClick("play", () => {
-    go("city");
+    go("dock");
   });
 });
 
