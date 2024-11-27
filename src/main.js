@@ -83,7 +83,11 @@ scene("city", () => {
 scene("dock", () => {
   fullscreen()
   setBackground("#1c7ec9")
-  add([rect(600,200),pos(0,100)])
+  add([
+    rect(600,200),
+    pos(0,100),
+    area()
+  ])
 })
 
 // Fishing Mode
@@ -175,7 +179,7 @@ scene("main_menu", () => {
     "play",
   ]);
   onClick("play", () => {
-    go("dock");
+    go("fishing");
   });
 });
 
